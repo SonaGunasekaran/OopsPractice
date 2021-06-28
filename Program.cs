@@ -6,36 +6,38 @@ namespace OOpsPractice
 
     class Program
     {
+        public const int FULL_TIME = 1;
+        public const int PART_TIME = 2;
+        public const int EMP_PER_HOUR = 20;
+
         public static void Main(string[] args)
         {
-            int partTime = 2;
-            int fullTime = 1;
+            
             int empHour = 0;
             int empWage = 0;
-            int empPerHour = 20;
+            
             Random random = new Random();
             int empInput = random.Next(0, 3);
-            if (empInput == fullTime)
+            switch(empInput)
             {
+                case FULL_TIME:
                 Console.WriteLine("Employee is Working Fulltime");
+                empHour = 8;
+                    break;
 
-                empHour = 9;
-
-            }
-            else if (empInput == partTime)
-            {
+                case PART_TIME:
+            
                 Console.WriteLine("Employee is Working Partime");
+                    empHour = 4;
+                    break;
 
-                empHour = 4;
+                default:
+                    empHour = 0;
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
+            
 
-                empHour = 0;
-            }
-
-            empWage = empPerHour * empHour;
+            empWage = EMP_PER_HOUR * empHour;
             Console.WriteLine("The daily wage of the employee = " + empWage);
 
 
